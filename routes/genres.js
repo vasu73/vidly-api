@@ -1,16 +1,17 @@
+const asyncMiddleware = require("../middleware/async");
 const { Genre, validate } = require("../models/genre");
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  try {
-    const genres = await Genre.find().sort("name");
-    res.send(genres);
-  } catch (error) {
-    res.status(500).send("Something failed");
-  }
-});
+const getHandler = async (req, res, next) => {
+  const genres = await Genre.find().sort("name");
+  res.send(genres);
+};
+
+//router.get("/", asyncMiddleware(getHandler));
+
+router.get("/", getHandler);
 
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
