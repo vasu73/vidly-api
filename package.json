@@ -4,18 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage",
+    "start": "node index.js"
   },
+  "engines": {
+    "node": 12.15.0
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "config": "^3.2.5",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "fawn": "^2.1.5",
+    "helmet": "^3.21.2",
     "joi": "^14.3.1",
     "joi-objectid": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongoose": "^5.8.11",
     "nodemon": "^2.0.2",
